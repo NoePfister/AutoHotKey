@@ -1,0 +1,23 @@
+F12(öffne/fokussiere applikationen)
+    - n -> Fokussiere oder öffne Notepad
+    - c -> Fokussiere oder öffne Chrome
+    - a -> Füge " -> " hinzu			 #TODO : in andere kategorie verschiecben
+    - d -> Fokussiere oder öffne Discord
+    - e -> Fokussiere oder öffne Explorer
+    - i -> Füge "    - " hinzu  		 #TODO : in andere kategorie verschiecben
+    - m -> Fokussiere oder öffne Feather Client
+    - o -> Fokussiere oder öffne Outlook
+    - w -> Fokussiere oder öffne WhatsApp
+    - g -> Fokussiere oder öffne OneNote
+
+
+F10(öffnen+etwas tun)
+    - t -> Fokussiere oder öffne chrome und öffne einen neuen Tab
+    - o -> Fokussiere oder öffne outlook und starte eine neue mail
+
+F9(Makros)
+    - c -> Kopiere gewählten text
+    - v -> Schreibe kopierten text
+    - x -> Schneide kopierten text aus
+
+

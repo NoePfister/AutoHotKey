@@ -54,3 +54,31 @@ i::
     Send {Space}{Space}{Space}{Space}-{Space}
 ExitApp, 0
 Return
+
+f::
+    Send {CtrlDown}{ShiftDown}n{CtrlUp}{ShiftUp}
+    Sleep 20
+    FormatTime, day,, dd
+    Send %day%
+    Send _
+    FormatTime, month,, MM
+    Send %month%
+    Send _
+    FormatTime, year,, yyyy
+    Send %year%
+    Send _
+ExitApp, 0
+Return
+
+d::
+    FormatTime, day,, dd
+    Send %day%
+    Send _
+    FormatTime, month,, MM
+    Send %month%
+    Send _
+    FormatTime, year,, yyyy
+    Send %year%
+    Send _
+ExitApp, 0
+Return

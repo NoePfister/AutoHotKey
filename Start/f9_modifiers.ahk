@@ -13,7 +13,7 @@ Return
 v:: 
 
     Send, {CtrlDown}v{CtrlUp}
-    
+
 Return
 
 x:: 
@@ -22,10 +22,3 @@ x::
     
 Return
 
-a:: 
-    Send {Space}->{Space}
-Return
-
-i:: 
-    Send {Space}{Space}{Space}{Space}-{Space}
-Return

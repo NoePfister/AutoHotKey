@@ -24,8 +24,7 @@ return
 
 
 
-;F9
-f9_activated := False
+
 
 
 f9::

@@ -26,6 +26,10 @@ c::
 ExitApp, 0
 Return
 
+t:: 
+    Run python D:\Apps\Todo\v1.0\main.py
+ExitApp, 0
+Return
 
 
 d:: 
@@ -54,6 +58,13 @@ m::
         Run C:\Program Files\Feather Launcher\Feather Launcher.exe
 ExitApp, 0        
 Return
+
+i::
+
+    Run D:\Apps\glnk\gInk\bin\gInk.exe
+ExitApp, 0        
+Return
+
 
 
 

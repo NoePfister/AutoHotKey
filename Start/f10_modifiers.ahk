@@ -44,3 +44,13 @@ o::
     Send, {CtrlDown}n{CtrlUp}
 ExitApp, 0xt
 Return
+
+a:: 
+    Send {Space}->{Space}
+ExitApp, 0
+Return
+
+i:: 
+    Send {Space}{Space}{Space}{Space}-{Space}
+ExitApp, 0
+Return

@@ -1,24 +1,24 @@
-﻿#SingleInstance, Force
-SendMode Input
-SetWorkingDir, %A_ScriptDir%
+﻿;THIS SCRIPT IS INTENDED TO BE TOGGLED FROM THE MAIN FILE
+;IT IS FOR MACROS, YOU ARE GONNA USE MULTIPLE TIMES IN A ROW
 
+#SingleInstance, Force
+; Only allow 1 instance of this script to be running
 
+c:: CopyToClipboard()
 
-c:: 
+v:: PasteFromClipboard()
 
+x:: CutToClipboard()
+
+CopyToClipboard(){
     Send, {CtrlDown}c{CtrlUp}
-    
-Return
+}
 
-v:: 
-
+PasteFromClipboard(){
     Send, {CtrlDown}v{CtrlUp}
+}
 
-Return
-
-x:: 
-
+CutToClipboard(){
     Send, {CtrlDown}x{CtrlUp}
-    
-Return
+}
 

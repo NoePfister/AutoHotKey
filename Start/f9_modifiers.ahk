@@ -3,6 +3,8 @@
 
 #SingleInstance, Force
 ; Only allow 1 instance of this script to be running
+#UseHook
+;Prevent the Function to call itself
 
 c:: CopyToClipboard()
 

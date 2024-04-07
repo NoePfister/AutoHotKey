@@ -2,8 +2,14 @@
 SendMode Input
 SetWorkingDir, %A_ScriptDir%
 
-XButton1:: SwitchToDiscord()
+custom = Discord.exe
+
+^XButton1:: EditCustom()
+
+XButton1:: SwitchToCustom()
 XButton2:: SwitchToFiles()
+
+
 
 Home:: SwitchToChrome()
 PgUp:: SwitchToOneNote()
@@ -37,11 +43,12 @@ SwitchToLastOpen(){
     Send {LAlt Up} ; Close switcher on hotkey release
 }
 
-SwitchToDiscord(){
-    if WinExist("ahk_exe Discord.exe")
+SwitchToCustom(){
+    global custom
+    if WinExist("ahk_exe " . custom)
         WinActivate
     Else
-        run Discord.exe
+        run custom
 }
 
 SwitchToFiles(){
@@ -49,4 +56,18 @@ SwitchToFiles(){
         WinActivate
     Else
         run Files.exe
+}
+
+EditCustom(){
+    global custom
+    WinGet, Path, ProcessPath, A
+    ; MsgBox, %Path%
+    custom = %Path%
+
+    Tooltip, set %custom% as the custom window to switch to
+
+    SwitchToCustom()
+
+    sleep 1000
+    tooltip
 }

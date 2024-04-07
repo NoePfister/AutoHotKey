@@ -5,6 +5,8 @@
 ; Only allow 1 instance of this script to be running
 
 SetWorkingDir, %A_ScriptDir%
+SendMode Input
+
 
 ;Declare variables 
 f9_activated = False
@@ -92,7 +94,7 @@ toggleApplicationSwitcher(){
         application_switcher_activated := True
         ;set the variable to false
 
-        ToolTip, application_switcher_activated, 10, A_ScreenHeight-100
+        ToolTip, application_switcher_activated, 10, A_ScreenHeight
         ;show, that the script is activated via tooltip
         ;The tooltip is shown the entiere time, the script is runnign
 

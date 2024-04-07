@@ -7,6 +7,8 @@
 #UseHook
 ;Prevent the Function to call itself
 
+SetWorkingDir, %A_ScriptDir%
+
 ; Open or focus chrome and open a new Tab
 t:: NewChromeTab()
 

@@ -6,6 +6,8 @@
 #UseHook
 ;Prevent the Function to call itself
 
+SetWorkingDir, %A_ScriptDir%
+
 c:: CopyToClipboard()
 
 v:: PasteFromClipboard()

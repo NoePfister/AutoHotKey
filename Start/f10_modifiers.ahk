@@ -10,8 +10,7 @@
 ; Open or focus chrome and open a new Tab
 t:: NewChromeTab()
 
-; Open or focus chrome and open a new tab and close the currrent one (save Mode)
-;TODO: close all currently open tabs
+; Open or focus chrome and open a new tab and closes all curently open tabs
 s:: OpenChromeSaveMode()
 
 ; send an arrow (" -> ")
@@ -43,8 +42,25 @@ OpenChromeSaveMode(){
     else
         Run C:\Program Files\Google\Chrome\Application\chrome.exe
 
-    Sleep, 50
-    Send, {CtrlDown}t{Tab}w{CtrlUp}
+    Tooltip "Waiting for chrome to load."
+    while ErrorLevel = 1
+    {
+        ImageSearch, ix, iy, 0, 0, 300, 300, %A_ScriptDir%\pictures\google_reload_button
+        Sleep, 5
+    }
+
+    Send, {CtrlDown}1{CtrlUp}
+    
+
+    while WinExist("ahk_exe chrome.exe"){
+        Send, {CtrlDown}w{CtrlUp}
+    }
+
+    if WinExist("ahk_exe chrome.exe")
+        WinActivate ; Activate the window found above
+    else
+        Run C:\Program Files\Google\Chrome\Application\chrome.exe
+    
 
     ExitApp, 0 
     Return

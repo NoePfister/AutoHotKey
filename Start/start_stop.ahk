@@ -1,7 +1,6 @@
 ﻿;THIS SCRIPT IS THE MAIN SCRIPT, THAT CONTROLS ALL THE OTHER SCRIPTS
 ;THIS SCRIPT IS INTENDED TO BE RUN ON STARTUP
 
-
 #SingleInstance, Force
 ; Only allow 1 instance of this script to be running
 

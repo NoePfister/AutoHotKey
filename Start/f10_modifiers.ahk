@@ -4,6 +4,9 @@
 #SingleInstance, Force
 ; Only allow 1 instance of this script to be running
 
+#UseHook
+;Prevent the Function to call itself
+
 ; Open or focus chrome and open a new Tab
 t:: NewChromeTab()
 
@@ -22,7 +25,6 @@ f:: CreateNewFolderWithDate()
 
 ; send the current date("06_04_2024_")
 d:: SendDate()
-
 
 NewChromeTab(){
     if WinExist("ahk_exe chrome.exe")
@@ -61,7 +63,7 @@ SendIndent(){
 }
 
 CreateNewFolderWithDate(){
-        Send {CtrlDown}{ShiftDown}n{CtrlUp}{ShiftUp}
+    Send {CtrlDown}{ShiftDown}n{CtrlUp}{ShiftUp}
     Sleep 200
     FormatTime, day,, dd
     Send %day%
@@ -77,7 +79,7 @@ CreateNewFolderWithDate(){
 }
 
 SendDate(){
-        FormatTime, day,, dd
+    FormatTime, day,, dd
     Send %day%
     Send _
     FormatTime, month,, MM

@@ -7,6 +7,8 @@
 ;Prevent the Function to call itself
 
 SetWorkingDir, %A_ScriptDir%
+SendMode Input
+
 
 c:: CopyToClipboard()
 

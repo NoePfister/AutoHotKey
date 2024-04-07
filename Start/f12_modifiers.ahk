@@ -6,6 +6,8 @@
 ;only allow 1 instance of this script
 
 SetWorkingDir, %A_ScriptDir%
+SendMode Input
+
 
 n:: OpenNotepad()
 ;Opens or focuses the most recent Notepad window

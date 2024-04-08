@@ -14,6 +14,8 @@ SendMode Input
 ; Open or focus chrome and open a new Tab
 t:: NewChromeTab()
 
+^Esc:: ExitForce()
+
 ; Open or focus chrome and open a new tab and closes all curently open tabs
 s:: OpenChromeSaveMode()
 
@@ -110,4 +112,9 @@ SendDate(){
     Send _
     ExitApp, 0
     Return
+}
+
+ExitForce(){
+ToolTip
+ExitApp, 0
 }

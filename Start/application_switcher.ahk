@@ -4,9 +4,14 @@ SetWorkingDir, %A_ScriptDir%
 
 custom = Discord.exe
 
+^Esc:: ExitForce()
+
 ^XButton1:: EditCustom()
+^Insert:: EditCustom()
 
 XButton1:: SwitchToCustom()
+Insert:: SwitchToCustom()
+
 XButton2:: SwitchToFiles()
 
 
@@ -70,4 +75,9 @@ EditCustom(){
 
     sleep 1000
     tooltip
+}
+
+ExitForce(){
+ToolTip
+ExitApp, 0
 }

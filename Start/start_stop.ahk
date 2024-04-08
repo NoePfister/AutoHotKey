@@ -7,7 +7,6 @@
 SetWorkingDir, %A_ScriptDir%
 SendMode Input
 
-
 ;Declare variables 
 f9_activated = False
 
@@ -79,11 +78,20 @@ toggleApplicationSwitcher(){
 
         application_switcher_activated := False
         ;set the variable to false
-        ToolTip, application_switcher_deactivated, 10, A_ScreenHeight
-        ;show the tooltip, that the script is deactivated
-        Sleep, 1700
-        ;wait for 1.7 seconds and then remove the tooltip
-        ToolTip
+
+        gui, Destroy
+
+        Gui Color, White
+        Gui -caption +toolwindow +AlwaysOnTop
+        Gui font, s15 , Arial
+
+        Gui add, text,  , Application Switcher Off
+        Gui Show, % "x" 10 " y" A_ScreenHeight-100, TRANS-WIN
+        
+
+        sleep 3000
+
+        gui, Destroy
     }
 
     else{
@@ -94,9 +102,13 @@ toggleApplicationSwitcher(){
         application_switcher_activated := True
         ;set the variable to false
 
-        ToolTip, application_switcher_activated, 10, A_ScreenHeight
-        ;show, that the script is activated via tooltip
-        ;The tooltip is shown the entiere time, the script is runnign
-
+        Gui Color, White
+        Gui -caption +toolwindow +AlwaysOnTop
+        Gui font, s15 , Arial
+        Gui add, text, , Application Switcher On
+        Gui Show, % "x" 10 " y" A_ScreenHeight-100, TRANS-WIN
+        
     }
+
 }
+

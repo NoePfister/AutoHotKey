@@ -16,6 +16,8 @@ v:: PasteFromClipboard()
 
 x:: CutToClipboard()
 
+^Esc:: ExitForce()
+
 CopyToClipboard(){
     Send, {CtrlDown}c{CtrlUp}
 }
@@ -28,3 +30,7 @@ CutToClipboard(){
     Send, {CtrlDown}x{CtrlUp}
 }
 
+ExitForce(){
+ToolTip
+ExitApp, 0
+}

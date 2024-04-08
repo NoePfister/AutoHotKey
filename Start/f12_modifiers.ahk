@@ -8,6 +8,7 @@
 SetWorkingDir, %A_ScriptDir%
 SendMode Input
 
+^Esc:: ExitForce()
 
 n:: OpenNotepad()
 ;Opens or focuses the most recent Notepad window
@@ -86,4 +87,9 @@ DrawOnScreen(){
     Run D:\Apps\glnk\gInk\bin\gInk.exe
     ExitApp, 0 
     Return
+}
+
+ExitForce(){
+ToolTip
+ExitApp, 0
 }

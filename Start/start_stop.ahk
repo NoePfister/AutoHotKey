@@ -12,6 +12,16 @@ f9_activated = False
 
 application_switcher_activated = False
 
+mouse_speed = 1
+
+
+
+
+;Esc is Capslock every time
+Esc::CapsLock
+
+
+
 f12:: RunF12Script()
 
 f10:: RunF10Script()
@@ -19,6 +29,8 @@ f10:: RunF10Script()
 f9:: ToggleF9Script()
 
 f8:: toggleApplicationSwitcher()
+
+
 
 ToggleF9Script(){
     global f9_activated
@@ -49,7 +61,7 @@ ToggleF9Script(){
 
         ToolTip, f9 Aktiviert
         ;show, that the script is activated via tooltip
-        ;The tooltip is shown the entiere time, the script is runnign
+        ;The tooltip is shown the entiere time, the script is running
 
     }
 }
@@ -111,4 +123,59 @@ toggleApplicationSwitcher(){
     }
 
 }
+
+CapsLockLongPress := false
+
+; Überwachung für das Drücken der Caps Lock-Taste
+CapsLock::
+    ; Starte einen Timer für das lange Drücken
+    SetTimer, CheckCapsLockHold, 150
+    ; Warte darauf, dass Caps Lock losgelassen wird
+    KeyWait, CapsLock
+    ; Wenn der Timer noch läuft, wurde die Taste nur kurz gedrückt
+    if (CapsLockPressed)
+    {
+        ; Sende Escape
+        Send, {Escape}
+        ; Setze die Variable zurück
+        CapsLockPressed := false
+    }
+return
+
+
+
+; Überwachung für das Loslassen der Caps Lock-Taste
+CapsLock Up::
+    ; Stoppe den Timer
+    SetTimer, CheckCapsLockHold, Off
+    ; Wenn Caps Lock für die lange Dauer gedrückt wurde, tue nichts weiter
+    if (CapsLockLongPress)
+    {
+        ; Setze die Variable zurück
+        CapsLockLongPress := false
+    }else{
+        send, {Escape}
+    }
+return
+
+; Funktion, die überprüft, ob Caps Lock lange gedrückt gehalten wird
+CheckCapsLockHold:
+    ; Wenn Caps Lock immer noch gedrückt ist
+    if GetKeyState("CapsLock", "P")
+    {
+        ; Setze die Variable für das lange Drücken
+        CapsLockLongPress := true
+        ; Halte die Strg-Taste
+        Send, {Ctrl down}
+        ; Warte, bis Caps Lock losgelassen wird
+        KeyWait, CapsLock
+        ; Lass die Strg-Taste los
+        Send, {Ctrl up}
+    }
+    ; Setze die Variable für das kurze Drücken
+    else
+    {
+        CapsLockPressed := true
+    }
+return
 

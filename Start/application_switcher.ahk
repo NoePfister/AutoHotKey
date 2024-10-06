@@ -2,23 +2,28 @@
 SendMode Input
 SetWorkingDir, %A_ScriptDir%
 
-custom = Discord.exe
+custom1 = Discord.exe
+custom2 = ONENOTE.exe
 
 ^Esc:: ExitForce()
 
-^XButton1:: EditCustom()
-^Insert:: EditCustom()
+^XButton1:: EditCustom1()
+^Insert:: EditCustom1()
 
-XButton1:: SwitchToCustom()
-Insert:: SwitchToCustom()
+XButton1:: SwitchToCustom1()
+Insert:: SwitchToCustom1()
 
-XButton2:: SwitchToFiles()
+XButton2:: SwitchToCustom2()
+^XButton2:: EditCustom2()
+
+sc029:: SwitchToCustom2()
+^sc029:: EditCustom2()
 
 
 
 Home:: SwitchToChrome()
 PgUp:: SwitchToOneNote()
-PgDn:: SwitchToWhatsApp()
+PgDn:: SwitchToFiles()
 End:: SwitchToLastOpen()
 
 SwitchToChrome(){
@@ -48,12 +53,12 @@ SwitchToLastOpen(){
     Send {LAlt Up} ; Close switcher on hotkey release
 }
 
-SwitchToCustom(){
-    global custom
-    if WinExist("ahk_exe " . custom)
+SwitchToCustom1(){
+    global custom1
+    if WinExist("ahk_exe " . custom1)
         WinActivate
     Else
-        run custom
+        run custom1
 }
 
 SwitchToFiles(){
@@ -63,21 +68,43 @@ SwitchToFiles(){
         run Files.exe
 }
 
-EditCustom(){
-    global custom
+EditCustom1(){
+    global custom1
     WinGet, Path, ProcessPath, A
     ; MsgBox, %Path%
-    custom = %Path%
+    custom1 = %Path%
 
-    Tooltip, set %custom% as the custom window to switch to
+    Tooltip, set %custom1% as the custom window to switch to
 
-    SwitchToCustom()
+    SwitchToCustom1()
 
     sleep 1000
     tooltip
 }
 
 ExitForce(){
-ToolTip
-ExitApp, 0
+    ToolTip
+    ExitApp, 0
+}
+
+EditCustom2(){
+    global custom2
+    WinGet, Path, ProcessPath, A
+    ; MsgBox, %Path%
+    custom2 = %Path%
+
+    Tooltip, set %custom2% as the custom window to switch to
+
+    SwitchToCustom1()
+
+    sleep 1000
+    tooltip
+}
+
+SwitchToCustom2(){
+    global custom2
+    if WinExist("ahk_exe " . custom2)
+        WinActivate
+    Else
+        run custom2
 }

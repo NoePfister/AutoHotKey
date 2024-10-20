@@ -15,6 +15,12 @@ application_switcher_activated = False
 mouse_speed = 1
 
 
+; OneNote Horizontal Scrolling with mouse and shift
+If WinActive("ahk_exe ONENOTE.EXE")
++WheelDown::WheelRight
++WheelUp::WheelLeft
+#IfWinActive
+
 
 
 ;Esc is Capslock every time

@@ -23,6 +23,15 @@ If WinActive("ahk_exe ONENOTE.EXE")
 
 
 
+If WinActive("ahk_exe ApplicationFrameHost.exe")
+!Up::send {Alt Up}^{PgUp}
+!Down::send {Alt Up}^{PgDn}
+#IfWinActive
+
+
+
+
+
 ;Esc is Capslock every time
 Esc::CapsLock
 CapsLock::Esc
